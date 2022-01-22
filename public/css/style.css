@@ -1,0 +1,87 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+}
+#form-box{
+    background:#d1d9e6;
+    padding: 30px;
+    border:1px solid white;
+    border-radius: 10px;
+    margin-bottom: 200px;
+}
+
+.search-field{
+    height:50px;
+    padding:10px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+}
+.location{
+    width: 250px;
+}
+.date{
+    width: 250px;
+}
+.search-btn{
+    height: 50px;
+    width: 150px;
+    font-weight: 38px;
+    font-style: bold;
+    background:blue;
+    border: none;
+    color:white;
+    border-radius: 25px;
+}
+#imgcon{
+    padding-top: 90px;
+    
+background-image: url('https://www.collinsdictionary.com/images/full/airportbus_38496475_1000.jpg');
+    background-position:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*https://www.collinsdictionary.com/images/full/airportbus_38496475_1000.jpg*/
+}
+#indexsearch{
+    
+    text-transform: uppercase;
+    color: tomato;
+    letter-spacing: 3px;
+    text-align: center;
+    }
+    #indexslogon{
+    
+    
+    text-align: center;
+    color: whitesmoke;
+    }
+    
+ .card{
+    border:solid 3px white;
+    border-radius: 10px;
+   /* border-top:solid 7px orange;
+    border-bottom:solid 7px orange;*/
+}
+#con{ background-color: #d3dbe5;
+margin-top: 10px;}
+
+#book{
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 32px;
+    color:ghostwhite;
+}
+#bookp{
+    font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 12px;
+    color:rgba(255, 255, 255, 0.014)
+}
+#nav-link:hover{
+    background-color: blue;
+    color: cornsilk;
+}

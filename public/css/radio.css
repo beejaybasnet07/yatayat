@@ -1,0 +1,43 @@
+one{
+    border: 2px solid red;
+    height: 210px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-right: 100px;
+}
+.checkclass .form-check-input{
+cursor: pointer;
+}
+
+.checkclass{
+    padding-left: 400px;
+    border: 1px solid black;
+    margin-left: 100px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.checkclass input[type="checkbox"]{
+    appearance: none;
+    -webkit-appearance: none;
+    height: 40px;
+    width: 40px;
+    background-color: #d5d5d5;
+    border-radius: 5px;
+}
+.checkclass input[type="checkbox"]:after{
+    color:white; 
+}
+.checkclass input[type="checkbox"]:hover{
+
+    background-color: #a5a5a5;
+}
+.checkclass input[type="checkbox"]:checked{
+    background-color: #5bcd3e;
+}
+/*
+.checkclass input[type="checkbox"]:checked::after{
+    
+}
