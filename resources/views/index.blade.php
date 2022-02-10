@@ -1,10 +1,11 @@
 @extends('master')
 @include('nav')
-
+<!--//hello-->
 <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
 
 
 <div class="container mb-5 ">
+
     <div class="container" id="imgcon">
 
         <form method="GET" action="search">
