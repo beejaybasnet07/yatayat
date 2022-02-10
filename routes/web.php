@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\LoginAuth;
+use App\Http\Controllers\Registeruser;
+use App\Models\Register_user;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,19 +27,18 @@ Route::get('search',function(){
 Route::view('/','index')->name('main');
 
 Route::get('search',[VehicleController::class,'index']);
-Route::post('search',[VehicleController::class,'showdata']);
+Route::post('sea',[VehicleController::class,'showdata']);
 Route::get('check',[VehicleController::class,'store']);
 
 Route::get('login',function(){
     return view('login');
 });
-Route::get('register',function(){
-    return view('register');
-});
+
 Route::get('aboutus',function(){
     return view('aboutus');
 });
 Route::post('user',[LoginAuth::class,'userlogin']);
+Route::post('userprofile',[Registeruser::class,'checklogin']);
 Route::get('/logout', function () {
     if(session()->has('email')){
         session()->pull('email');
@@ -48,6 +51,21 @@ Route::get('dropdown', function () {
 Route::get('collapse', function () {
     return view('collapse');
 });
-Route::get('userprofile', function () {
-    return view('userprofile');
-});
+
+Route::get('register',[Registeruser::class,'create']);
+Route::get('a',[Registeruser::class,'store']);
+Route::get('login',[Registeruser::class,'show']);
+//Route::post('update',[Registeruser::class,'update']);
+
+
+Route::post('update/{id}',[Registeruser::class,'update']);
+Route::put('update',[Registeruser::class,'updateuserdata'])->name('userupdate');
+
+Route::get('/ajaxform',function(){return view('ajaxform');});
+Route::get('/formsubmit',[VehicleController::class,'showajax']);
+Route::post('book',[BookController::class,'store']);
+Route::view('new','new');
+Route::view('ticket','ticket');
+
+
+

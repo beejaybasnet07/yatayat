@@ -4,7 +4,7 @@
       <a class="navbar-brand" href="">
 
 
-        <span class="font-weight-normal text-white">Yatayat.com</span>
+        <span class="font-weight-normal text-white">Yatayat</span>
       </a>
     </nav>
 
@@ -44,36 +44,35 @@
   </nav>
 </div>
 
-<div class="container mt-3  " style="border-bottom: 0px solid #71bfe3">
+<div class="container-fluid" style="border-bottom: 0px solid #71bfe3">
   <div class="row">
-    <div class="col-md-1 ">
+    <div class="col-md-1 mt-1">
       
         
-        <i class="bi bi-circle-fill"> <i class="fas fa-bus-alt fa-3x" style="color: #007bff;"></i></i>
+        <i class="fas fa-bus-alt fa-3x " style="color: #007bff;"></i>
         
       
     </div>
     <div class="col offset-md-8 mt-2 ">
       <div class="dropdown float-right">
         <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-          Dropdown link
+          VEHICLE HIRE
         </a>
 
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
+          <li><a class="dropdown-item" href="#">Bus</a></li>
+          <li><a class="dropdown-item" href="#">Car</a></li>
+          <li><a class="dropdown-item" href="#">Jeep</a></li>
         </ul>
       </div>
       <!-- Example single danger button -->
       <div class="btn-group">
         <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          Action
+          BUS TICKETS
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
+          <li><a class="dropdown-item" href="#">View Ticket</a></li>
+         
         </ul>
       </div>
 

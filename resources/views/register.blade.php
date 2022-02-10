@@ -18,20 +18,21 @@
 
      <div class="row">
          <div class="col-md  mb-5 pb-1" id="main" style="background:white;">
-             <form method="POST" action="" enctype="multipart/form-data">
+             <form method="get" action="a" enctype="multipart/form-data">
+              @csrf
                  <h5 class="text-black-50 pl-5 pt-3 my-3">Personal Details</h5>
                  <div class="row" id="row1" style="background-color:#f4f7f7">
                      <div class="col-md-5 pt-3">
                          <div class="form-group">
                              <div class="form-label-group">
-                                 <input type="text" class="form-control" placeholder="Your Name" id="name" name="pname" required="required">
+                                 <input type="text" class="form-control" placeholder="Your Name" id="name" name="name" >
                              </div>
                          </div>
                      </div>
                      <div class="col-md-2 pt-3 ml-3">
                          <div class="form-group">
                              <div class="form-label-group">
-                                 <input type="number" class="form-control" placeholder="Age" name="age" id="age" required="required" pattern="^[A-Za-z]{2,25}">
+                                 <input type="number" class="form-control" placeholder="Age" name="age" id="age"  pattern="^[A-Za-z]{2,25}">
                              </div>
                          </div>
                      </div>
@@ -61,7 +62,7 @@
                      <div class="col-md-5 pt-3">
                          <div class="form-group">
                              <div class="form-label-group">
-                                 <input type="text" class="form-control" placeholder="City" name="scity" id="scity" required="required" pattern="[A-Za-z]+">
+                                 <input type="text" class="form-control" placeholder="City" name="district" id="district"  pattern="[A-Za-z]+">
                              </div>
                          </div>
                      </div>
@@ -69,7 +70,7 @@
                      <div class="col-md-5 pt-3">
                          <div class="form-group">
                              <div class="form-label-group">
-                                 <input type="text" class="form-control" placeholder="Station" name="station" id="station" required="required">
+                                 <input type="text" class="form-control" placeholder="Station" name="city" id="city" >
                              </div>
                          </div>
                      </div>
@@ -80,7 +81,7 @@
                      <div class="col-md-5 pt-3">
                          <div class="form-group">
                              <div class="form-label-group">
-                                 <input type="number" class="form-control" placeholder="eg.(98**********)" name="phone" id="phone" required="required" pattern="^[98][0-9]{9}">
+                                 <input type="number" class="form-control" placeholder="eg.(98**********)" name="phone" id="phone"  pattern="^[98][0-9]{9}">
                              </div>
                          </div>
                      </div>
@@ -88,7 +89,7 @@
                      <div class="col-md-5 pt-3">
                          <div class="form-group">
                              <div class="form-label-group">
-                                 <input type="email" class="form-control" placeholder="Email" name="email" id="email" required="required" pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$">
+                                 <input type="email" class="form-control" placeholder="Email" name="email" id="email"  pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$">
                              </div>
                          </div>
                      </div>
@@ -106,7 +107,7 @@
                      <div class="col-md-5 pt-3">
                          <div class="form-group">
                              <div class="form-label-group">
-                                 <input type="password" class="form-control" placeholder="Retype Password" id="repassword" name="repassword" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" onblur="check()">
+                                 <input type="password" class="form-control" placeholder="Retype Password" id="repassword" name="repassword"  pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" onblur="check()">
                              </div>
                              <label id="lb"></label>
                          </div>

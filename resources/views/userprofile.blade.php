@@ -1,5 +1,10 @@
 @extends('master')
-
+@foreach($userdata as $data)
+@endforeach
+<?php
+date_default_timezone_set('Asia/Kathmandu');
+$datetime = date("Y-m-d H:i:s");
+$date_time = strtotime($datetime);?>
 <body>
 
     <div class="container rounded  mt-5 mb-5">
@@ -9,7 +14,7 @@
 
             </a>
             <div class="float-right">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Update Profile</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" >Update Profile</button>
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -23,18 +28,19 @@
 
 
 
-                                <form action="#" method="POST">
+                                <form action="update/{{$data->id}}" method="POST" id="updateform">
+                                @csrf
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="name">Name</label>
-                                                <input class="form-control input-lg" id="inputlg" type="text" name="name" value="" required>
+                                                <input class="form-control input-lg" id="name" type="text" name="name" value="{{$data->name}}" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="contact">Contact</label>
-                                                <input class="form-control input-lg" id="inputlg" type="number" name="phone" value="" required>
+                                                <input class="form-control input-lg" id="phone" type="number" name="phone" value="{{$data->phone}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -42,28 +48,28 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="email">Email address</label>
-                                                <input class="form-control input-lg" id="inputlg" type="text" name="email" required readonly>
+                                                <input class="form-control input-lg" id="inputlg" type="text" name="email" value="{{$data->email}}" required readonly>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="Postal Code">City</label>
-                                                <input class="form-control input-lg" id="inputlg" type="text" name="city" required>
+                                                <label for="Postal Code">District</label>
+                                                <input class="form-control input-lg" id="district" type="text" name="district" value="{{$data->district}}" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="address">Station</label>
-                                                <input class="form-control input-lg" id="inputlg" type="text" name="station" required>
+                                                <label for="address">City</label>
+                                                <input class="form-control input-lg" id="city" type="text" name="city" value="{{$data->city}}"  required>
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="password">Password</label>
-                                                <input class="form-control input-lg" id="inputlg" type="text" name="password" value="" placeholder="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
+                                                <input class="form-control input-lg" id="password" type="text" name="password"  placeholder="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
                                             </div>
                                         </div>
                                     </div>
@@ -72,7 +78,7 @@
                                             <div class="form-group">
                                                 <label for="password">Age</label>
                                                 <div class="form-label-group">
-                                                    <input type="number" class="form-control" placeholder="age" name="age" id="age" value="" required="required" pattern="^[A-Za-z]{2,25}">
+                                                    <input type="number" class="form-control" placeholder="age" name="age" id="age" value="{{$data->age}}" required="required" pattern="^[A-Za-z]{2,25}">
 
                                                 </div>
                                             </div>
@@ -99,13 +105,14 @@
                                         </div>
                                     </div>
 
-                                </form>
+                                
 
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save Changes</button>
+                                <button  type="submit" class="btn btn-primary">Save Changes</button>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -121,9 +128,9 @@
                         <div class="card mb-4">
                             <div class="card-body text-center">
                                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                                <h5 class="my-3">John Smith</h5>
-                                <p class="text-muted mb-1">Full Stack Developer</p>
-                                <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+                                <h5 class="my-3">{{$data->name}}</h5>
+                                <p class="text-muted mb-1">{{$data->email}}</p>
+                                <p class="text-muted mb-4">{{$data->district}}{{$data->city}}</p>
                             </div>
                         </div>
 
@@ -136,7 +143,7 @@
                                         <p class="mb-0">Full Name</p>
                                     </div>
                                     <div class="col-sm-9">
-                                        <p class="text-muted mb-0">Johnatan Smith</p>
+                                        <p class="text-muted mb-0">{{$data->name}}</p>
                                     </div>
                                 </div>
                                 <hr>
@@ -145,7 +152,7 @@
                                         <p class="mb-0">Email</p>
                                     </div>
                                     <div class="col-sm-9">
-                                        <p class="text-muted mb-0">example@example.com</p>
+                                        <p class="text-muted mb-0">{{$data->email}}</p>
                                     </div>
                                 </div>
                                 <hr>
@@ -154,16 +161,25 @@
                                         <p class="mb-0">Phone</p>
                                     </div>
                                     <div class="col-sm-9">
-                                        <p class="text-muted mb-0">(097) 234-5678</p>
+                                        <p class="text-muted mb-0">{{$data->phone}}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <p class="mb-0">Mobile</p>
+                                        <p class="mb-0">Gender</p>
                                     </div>
                                     <div class="col-sm-9">
-                                        <p class="text-muted mb-0">(098) 765-4321</p>
+                                        <p class="text-muted mb-0">{{$data->gender}}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Age</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">{{$data->age}}</p>
                                     </div>
                                 </div>
                                 <hr>
@@ -172,7 +188,7 @@
                                         <p class="mb-0">Address</p>
                                     </div>
                                     <div class="col-sm-9">
-                                        <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                                        <p class="text-muted mb-0">{{$data->district}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -205,8 +221,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($bookdata as $bookval)
+
                                         <tr>
-                                            <td><?php  ?></td>
+                                            <td>{{$bookval->seat}}</td>
                                             <td><?php  ?></td>
                                             <td><?php  ?></td>
                                             <td><?php  ?></td>
@@ -218,22 +236,23 @@
                                                 <p class=" font-weight-bold text-success">BOOKED</p>
                                             </td>
                                             <td><?php
-                                                //date_default_timezone_set('Asia/Kathmandu');
-                                                //$ab = strtotime($row->timestamp);
-
-                                                // if ($date_time > $ab) { 
-                                                ?>
+                                                date_default_timezone_set('Asia/Kathmandu');
+                                                $ab = strtotime($bookval->created_at);
+    
+                                                 if ($date_time > $ab) { 
+                                                ?> 
                                                 <button class=" btn btn-danger btn-sm" disabled data-toggle="tool-tip" id="cancle" title="Cancle">Cancle</button></a>
 
 
-                                                <?php //} //else { 
+                                                <?php } else { 
                                                 ?>
-                                                <a onclick="return confirm('Are you sure to delete this entry?')" href="">
+                                                <a onclick="return confirm('Are you sure to cancle your booking?')" href="">
                                                     <button class=" btn btn-danger btn-sm" data-toggle="tool-tip" id="cancle" title="Cancle">Cancle</button></a>
-                                                <?php //} 
+                                                <?php } 
                                                 ?>
                                             </td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -261,10 +280,11 @@
 
                                             <th scope="col">Date</th>
                                             <th scope="col">Status</th>
-                                            <th scope="col">Action</th>
+                                           
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($bookingcancle as $canclled)
                                         <tr>
                                             <td><?php  ?></td>
                                             <td><?php  ?></td>
@@ -273,27 +293,13 @@
 
 
 
-                                            <td></td>
+                                            <td> {{$canclled->seat}}</td>
                                             <td>
-                                                <p class=" font-weight-bold text-success">BOOKED</p>
+                                                <p class=" font-weight-bold text-info">Cancelled</p>
                                             </td>
-                                            <td><?php
-                                                //date_default_timezone_set('Asia/Kathmandu');
-                                                //$ab = strtotime($row->timestamp);
-
-                                                // if ($date_time > $ab) { 
-                                                ?>
-                                                <button class=" btn btn-danger btn-sm" disabled data-toggle="tool-tip" id="cancle" title="Cancle">Cancle</button></a>
-
-
-                                                <?php //} //else { 
-                                                ?>
-                                                <a onclick="return confirm('Are you sure to delete this entry?')" href="">
-                                                    <button class=" btn btn-danger btn-sm" data-toggle="tool-tip" id="cancle" title="Cancle">Cancle</button></a>
-                                                <?php //} 
-                                                ?>
-                                            </td>
+                                            
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -306,9 +312,48 @@
     </div>
     </section>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 
+
+
+
+<script>
+
+$("#updateform").submit(function(e){
+   
+   e.preventDefault();
+        let name=$("#name").val;
+        let district=$("#district").val();
+        let city=$("#city").val();
+        let gender=$("#gender").val();
+        let phone=$("#phone").val();
+        let age=$("#age").val();
+        let password= md5($("#password").val());
+       // echo(name);
+        $.ajax({
+            url:"{{route('userupdate')}}",
+            type:"put",
+            data:{
+                name:name,
+                district:district,
+                city:city,
+                gender:gender,
+                phone:phone,
+                age:age,
+                password:password
+
+            },
+            success:function(response){
+                
+            }
+        });
+});
+
+
+</script>
 
 
 </body>

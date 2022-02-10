@@ -1,6 +1,5 @@
 @extends('master')
-@include('nav
-')
+@include('nav')
 <section class="my-1">
         <div class="container">
             <div class="row">

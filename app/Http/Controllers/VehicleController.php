@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
+ use App\Http\Controllers\Redirect;
 
 class VehicleController extends Controller
 {
@@ -14,6 +16,7 @@ class VehicleController extends Controller
      */
     public function index( Request $request)
     { 
+        
        $from=$request['from'];
        $to=$request['to'];
        $date=$request['date'];
@@ -22,9 +25,19 @@ class VehicleController extends Controller
                   ->where('date','=',$date)
                    ->get();
        // $vehicle=Vehicle::all();
-        return view('search',['vehicle'=>$vehicle]);
+       $book=Book::where('status',0)->get();
+    
+       if($vehicle){
+        return view('search',['vehicle'=>$vehicle],['books'=> $book]);
+       }
+       else{
+        
+           $session1=$request->session()->put('session1','own');
+           echo "<script>alert('RESULT NOT FOUND');</script>";
+           return view('/index');
+       }
+        
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -52,8 +65,10 @@ class VehicleController extends Controller
      * @param  \App\Models\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function show(Vehicle $vehicle)
+    public function show()
+
     {
+   
         
     }
 
@@ -91,12 +106,19 @@ class VehicleController extends Controller
         //
     }
     public function showdata(Request $request){
-        
-            $data=$request->travelname;
+         echo "man";
+
+           /* $data=$request->travelname;
              echo $data;
             $vehicle=Vehicle::whereIN('id', explode(',',$data))
             ->get();
-            dd($vehicle);
+            dd($vehicle);*/
+        
+    }
+    public function showajax(Request $request)
+    {
+         
+         echo"okey";           
         
     }
 }

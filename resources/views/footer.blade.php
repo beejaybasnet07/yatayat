@@ -10,10 +10,10 @@ li{
     padding:7px;
 }
 </style>
-<div class="container">
+<div class="container-fluid">
     <div class="row mt-5 pt-5" style="background-color: #646464; color:white">
         <div class="col-md-3 offset-md-2">
-            <h6>Top Routes</h6>
+            <h6 class="ml-3">Top Routes</h6>
             <ul>
                 <li>kathmandu-pokhara</li>
                 <li>pokhara-kathmandu</li>
@@ -22,7 +22,7 @@ li{
             </ul>
         </div>
         <div class="col-md-3">
-            <h6>Top operators</h6>
+            <h6 class="ml-3">Top operators</h6>
             <ul>
                 <li> shaja yatayat</li>
                 <li>Shakira Hiace</li>
@@ -30,7 +30,7 @@ li{
             </ul>
         </div>
         <div class="col-md-4">
-            <h6>Company</h6>
+            <h6 class="ml-3">Company</h6>
             <ul>
                 <li><a href="#"style="color:white;">
                     about us</a>
@@ -56,7 +56,7 @@ li{
             <p>Copyright@2022 all right reserved  by Yatayat.com</p>
         </div>
         <div class="col">
-        <span>Payment Partner<img src="https://e7.pngegg.com/pngimages/18/669/png-clipart-esewa-fonepay-pvt-ltd-logo-brand-cash-on-delivery-logo-text-logo-thumbnail.png" height="50px"> </span>
+        <span><p>Payment Partner</p><img src="https://e7.pngegg.com/pngimages/18/669/png-clipart-esewa-fonepay-pvt-ltd-logo-brand-cash-on-delivery-logo-text-logo-thumbnail.png" height="50px"> </span>
         </div>
     </div>
 </div>

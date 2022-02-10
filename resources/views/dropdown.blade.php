@@ -1,25 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" type="text/css" href="../css/radio2.css">
-
-    <title>Document</title>
-    <style>
-        #headingOne li {
-            width: 110px;
-        }
-    </style>
-</head>
+@extends('master')
 
 <body>
     <div class="container">
@@ -51,15 +32,16 @@
                     <div class="card">
                         <div class="card-header" id="headingOne">
                             <h5 class="mb-0">
-                                <button class="btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <ul style="display: inline-flex;list-style:none; padding:0px">
-
-                                        <li>Makalu Yatayat</li>
-                                        <li>Delux</li>
-                                        <li>12:00pm</li>
-                                        <li>1500</li>
-                                        <li>25</li>
-                                    </ul>
+                                <button class="btn btn-block" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <table class="table">
+                                       <tbody>
+                                        <td>Makalu Yatayat</td>
+                                        <td>Delux</td>
+                                        <td>12:00pm</td>
+                                        <td>1500</td>
+                                        <td>25</td>
+                                       </tbody>
+                                    </table>
                                 </button>
                             </h5>
                         </div>
@@ -283,4 +265,3 @@
     }
 </script>
 
-</html>

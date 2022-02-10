@@ -35,7 +35,7 @@ body{
     border-radius: 25px;
 }
 #imgcon{
-    padding-top: 90px;
+
     
 background-image: url('https://www.collinsdictionary.com/images/full/airportbus_38496475_1000.jpg');
     background-position:center;
@@ -55,7 +55,8 @@ background-image: url('https://www.collinsdictionary.com/images/full/airportbus_
     
     
     text-align: center;
-    color: whitesmoke;
+    text-transform: uppercase;
+    color: rgb(87, 170, 238)
     }
     
  .card{
