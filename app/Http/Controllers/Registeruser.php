@@ -8,6 +8,7 @@ use Illuminate\Database\Console\DbCommand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Book;
+use App\Models\Vehicle;
 
 class Registeruser extends Controller
 {
@@ -83,9 +84,19 @@ class Registeruser extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Register_user $register_user,$id)
-    {
-        $registeruser=Register_user::find($id);
-        return response()->json($registeruser);
+    {   $data=Register_user::find($request->id);
+      echo  $data->name=$request->get('name');
+      echo  $data->district=$request->get('district');
+       echo  $data->city=$request->get('city');
+       echo $data->gender=$request->get('gender');
+      echo   $data->phone=$request->get('phone');
+       echo $data->email=$request->get('email');
+       echo $data->age=$request->get('age');
+       echo $data->password= md5($request->get('password')); 
+       $data->save();
+       session()->flash('update',' Your Record is Successfully Updated.'); 
+       return redirect('userprofile');
+
         
         
     }
@@ -115,21 +126,39 @@ class Registeruser extends Controller
         //
     }
     public function checklogin(Request $request)
-    {
+    {    
         
-       $vechileid=0;
-        $checkuser=Register_user::where('email',$request->input('email'))
-                            ->where('password',md5($request->input('password')))
-                            ->get();
-        if( $checkuser){
-         $request->session()->put('email',$request->input('email'));
-         
+        if(session('email')!=""){
+
+         $checkuser=Register_user::where('email',session('email'))->get();
+         foreach( $checkuser as $key => $c){
+         session(['id' => $c->id]);
+         }
          $bookdata=Book::where('pid',session('id'))->where('status',0)->get();
          $bookingcancle=Book::where('pid',session('id'))->where('status',1)->get();
-         foreach($bookdata as $a){
-         $vechileid= $a->vid;
-        }
+         return view('userprofile',['userdata'=>$checkuser, 'bookdata'=>$bookdata, 'bookingcancle'=>$bookingcancle]);
+         }
+         else
+        {     
+          $checkuser=Register_user::where('email',$request->input('email'))
+                            ->where('password',md5($request->input('password')))
+                            ->get();
+         if( $checkuser){
+         $request->session()->put('email',$request->input('email'));
+         foreach( $checkuser as $key => $c){
+            session(['id' => $c->id]);
+            }
 
+         $bookdata=Book::where('pid',session('id'))->where('status',0)->get();
+         $bookingcancle=Book::where('pid',session('id'))->where('status',1)->get();
+         /*
+        $ac=DB::table('Vehicles')
+            ->chunkById(100, function ($bookdata) {
+              foreach ($bookdata as $user) {
+            DB::table('books')
+                ->where('id', $user->vid)->get();
+        }
+    });*/
          return view('userprofile',['userdata'=>$checkuser, 'bookdata'=>$bookdata, 'bookingcancle'=>$bookingcancle]);
         }
         else
@@ -137,8 +166,20 @@ class Registeruser extends Controller
             return view('login');
         }
                             
+    }
+    }    
+    public function cancle($id){
+/*
+          DB::table('books')
+         ->where('seat', $id)
+         ->update(['status' => 1]);*/
+         session()->flash('cancle',' Your Booking is Successfully Cancelled.');
          
-    }             
+
+         return redirect('userprofile');
+         
+        
+    }         
              
     
 

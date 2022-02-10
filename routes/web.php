@@ -30,7 +30,7 @@ Route::get('search',[VehicleController::class,'index']);
 Route::post('sea',[VehicleController::class,'showdata']);
 Route::get('check',[VehicleController::class,'store']);
 
-Route::get('login',function(){
+Route::post('login',function(){
     return view('login');
 });
 
@@ -38,7 +38,7 @@ Route::get('aboutus',function(){
     return view('aboutus');
 });
 Route::post('user',[LoginAuth::class,'userlogin']);
-Route::post('userprofile',[Registeruser::class,'checklogin']);
+Route::get('userprofile',[Registeruser::class,'checklogin']);
 Route::get('/logout', function () {
     if(session()->has('email')){
         session()->pull('email');
@@ -59,13 +59,14 @@ Route::get('login',[Registeruser::class,'show']);
 
 
 Route::post('update/{id}',[Registeruser::class,'update']);
-Route::put('update',[Registeruser::class,'updateuserdata'])->name('userupdate');
+Route::post('update',[Registeruser::class,'updateuserdata'])->name('userupdate');
 
 Route::get('/ajaxform',function(){return view('ajaxform');});
 Route::get('/formsubmit',[VehicleController::class,'showajax']);
 Route::post('book',[BookController::class,'store']);
 Route::view('new','new');
 Route::view('ticket','ticket');
+Route::get('cancle/{id}',[Registeruser::class,'cancle']);
 
 
 

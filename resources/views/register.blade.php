@@ -1,5 +1,5 @@
  @extends('master')
- 
+ @include('nav')
 
  <div class="container" style="background-color:#f4f7f7">
      <div class="row pl-md-5 pt-md-3">

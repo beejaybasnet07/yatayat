@@ -1,5 +1,5 @@
-<div class="container-fluid">
-  <nav class="navbar navbar-expand-sm" style=" background-color: #71bfe3;">
+
+  <nav class="navbar navbar-expand-lg" style=" background-color: #71bfe3;width:100%;">
     <nav class="navbar" style="background-color: #71bfe3;">
       <a class="navbar-brand" href="">
 
@@ -42,18 +42,12 @@
       </ul>
     </div>
   </nav>
-</div>
-
 <div class="container-fluid" style="border-bottom: 0px solid #71bfe3">
   <div class="row">
     <div class="col-md-1 mt-1">
-      
-        
-        <i class="fas fa-bus-alt fa-3x " style="color: #007bff;"></i>
-        
-      
+        <i class="fas fa-bus-alt fa-3x " style="color: #007bff; display:none;"></i>
     </div>
-    <div class="col offset-md-8 mt-2 ">
+    <div class="col offset-md-8 mt-2 mb-2">
       <div class="dropdown float-right">
         <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
           VEHICLE HIRE
