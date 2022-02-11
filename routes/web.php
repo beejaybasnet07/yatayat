@@ -55,10 +55,10 @@ Route::get('collapse', function () {
 Route::get('register',[Registeruser::class,'create']);
 Route::get('a',[Registeruser::class,'store']);
 Route::get('login',[Registeruser::class,'show']);
-//Route::post('update',[Registeruser::class,'update']);
+Route::post('update',[Registeruser::class,'update']);
 
 
-Route::post('update/{id}',[Registeruser::class,'update']);
+Route::post('update/{id}',[Registeruser::class,'update'])->name('updatedata');
 Route::post('update',[Registeruser::class,'updateuserdata'])->name('userupdate');
 
 Route::get('/ajaxform',function(){return view('ajaxform');});

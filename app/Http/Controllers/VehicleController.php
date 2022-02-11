@@ -26,7 +26,9 @@ class VehicleController extends Controller
                    ->get();
        // $vehicle=Vehicle::all();
        $book=Book::where('status',0)->get();
-    
+       if( session('email')==""){
+       session()->flash('notlogin',' Please login First !!.');
+    }
        if($vehicle){
         return view('search',['vehicle'=>$vehicle],['books'=> $book]);
        }

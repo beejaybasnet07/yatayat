@@ -18,9 +18,7 @@
           <a class="nav-link" href="{{Route('main')}}" style="display:inline; color:white">Home</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="register" style="display:inline;color:white">Sign up</a>
-        </li>
+        
 
         <li class="nav-item">
           <a class="nav-link" href="aboutus" style="display:inline;color:white">About us</a>
@@ -35,7 +33,9 @@
           <li class="nav-item">
             <a class="nav-link" href="userprofile" style="display:inline;color:white"><i class="fa fa-user fa-1x"></i></a>
           </li><?php } else { ?>
-
+            <li class="nav-item">
+          <a class="nav-link" href="register" style="display:inline;color:white">Sign up</a>
+        </li>
           <li class="nav-item">
             <a class="nav-link" href="login" style="display:inline;color:white">Login</a>
           </li><?php } ?>

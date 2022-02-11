@@ -146,33 +146,24 @@ class Registeruser extends Controller
          if( $checkuser){
          $request->session()->put('email',$request->input('email'));
          foreach( $checkuser as $key => $c){
-            session(['id' => $c->id]);
-            }
-
+           echo session(['id' => $c->id]);
+            echo session('id');}
          $bookdata=Book::where('pid',session('id'))->where('status',0)->get();
          $bookingcancle=Book::where('pid',session('id'))->where('status',1)->get();
-         /*
-        $ac=DB::table('Vehicles')
-            ->chunkById(100, function ($bookdata) {
-              foreach ($bookdata as $user) {
-            DB::table('books')
-                ->where('id', $user->vid)->get();
+         return view('userprofile',['userdata'=>$checkuser,'bookdata'=>$bookdata,'bookingcancle'=>$bookingcancle ]);
         }
-    });*/
-         return view('userprofile',['userdata'=>$checkuser, 'bookdata'=>$bookdata, 'bookingcancle'=>$bookingcancle]);
-        }
-        else
+       else 
         {
-            return view('login');
+            return redirect()->back()->with('status', 'Invalid credentials!');
         }
                             
     }
     }    
     public function cancle($id){
-/*
+
           DB::table('books')
          ->where('seat', $id)
-         ->update(['status' => 1]);*/
+         ->update(['status' => 1]);
          session()->flash('cancle',' Your Booking is Successfully Cancelled.');
          
 

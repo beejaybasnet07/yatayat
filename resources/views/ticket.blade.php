@@ -6,7 +6,7 @@
             <span class="font-weight-normal text-info">Yatayat</span></a>
         </a>
         
- <a style="color:skyblue;" data-toggle="tooltip"  title="myprofile" class="nav-link" href="../Userprofile/userprofile.php"><i class="fa fa-user fa-2x"></i></a>
+ <a style="color:skyblue;" data-toggle="tooltip"  title="myprofile" class="nav-link" href="../userprofile"><i class="fa fa-user fa-2x"></i></a>
 
     </nav>
     <div class="container" style="border:2px solid whitesmoke;margin-bottom:10px;border-radius:10px; background-color:white;">

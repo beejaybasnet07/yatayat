@@ -8,6 +8,18 @@
 <body class="bg-light">
 
   <div class=" container-fluid  ">
+  @if((session()->has('notlogin')))
+    <div class="row">
+        <div class="col-4 offset-8 mt-3 mr-3">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>{{session('notlogin')}}!</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+        @endif
 
     <div class="alert alert-secondary" role="alert">
 
@@ -225,11 +237,7 @@
                     </div>
                     <div class="col col-1">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="check1" name="check" value="A4{{$data->id}}" <?php foreach ($books as $bookval) {
-                                                                                                                            if (($bookval->seat) == "A4" . $data->id) {
-                                                                                                                              echo "disabled style='background-color : red ;cursor:text'";
-                                                                                                                            }
-                                                                                                                          } ?>onchange="return validate(this)">
+                        <input class="form-check-input" type="checkbox" id="check1" name="check" value="A4{{$data->id}}" <?php foreach ($books as $bookval) {if (($bookval->seat) == "A4".$data->id) {echo "disabled style='background-color : red ;cursor:text'";}} ?>onchange="return validate(this)">
                       </div>
                     </div>
 
@@ -372,7 +380,7 @@
                       </div>
                     </div>
 
-                    <button class="btn btn-primary btn-block" type="submit" name="{{$data->id}}">Continue Booking</button>
+                    <button class="btn btn-primary btn-block" type="submit" name="{{$data->id}}" <?php  if(session('email')==""){ echo "disabled "; } ?> >Continue Booking</button>
                     </form>
                   </div>
                 </div>

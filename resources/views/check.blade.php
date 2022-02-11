@@ -249,10 +249,10 @@
 
                                     <div class="col" style="background-color:#fbfbfb">
                                         <div class="row px-3 pt-3">
-                                            <h6>Per ticket Cost:</h6>
+                                            <h6>Per Ticket Cost: Rs 1,000</h6>
                                         </div>
                                         <div class="row px-3">
-                                            <h6>Total Cost:</h6>
+                                            <h6>Total Cost: Rs 1,000</h6>
                                         </div>
 
                                     </div>

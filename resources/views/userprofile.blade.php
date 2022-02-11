@@ -1,7 +1,6 @@
 @extends('master')
 @include('nav')
-@foreach($userdata as $data)
-@endforeach
+
 
 
 <?php
@@ -40,8 +39,12 @@ $date_time = strtotime($datetime); ?>
                                 <div class="modal-body">
 
                                     <h7><label for="inputlg" style="color:blue;">Leave as it is to use existing detail</label></h7><br><br>
+                                    @foreach($userdata as $data)
 
-                                    <form  action="update/{{$data->id}}" method="POST">
+
+                                    
+                                    <form  action="update/{{$data->id}}" method="post">
+                                    
                                         @csrf
                                         <div class="row">
                                             <div class="col-md-6">
@@ -123,6 +126,7 @@ $date_time = strtotime($datetime); ?>
                                     <button class="btn btn-primary" type="submit"> Save Changes</button>
                                 </div>
                         </form>
+                        @endforeach
                             </div>
                         </div>
                     </div>
