@@ -19,16 +19,13 @@ class CreateBooksTable extends Migration
             $table->unsignedBigInteger('pid');
             $table->unsignedBigInteger('vid');
             $table->string('seat');
-            $table->string('boarding_point');
+            $table->string('bording_point');
             $table->string('dropping_point');
             $table->integer('cost');
             $table->date('date');
             $table->integer('status');
 
             $table->timestamps();
-
-            $table->foreign('pid')->references('id')->on('register_users');
-            $table->foreign('vid')->references('id')->on('vehicles');
         });
     }
 
