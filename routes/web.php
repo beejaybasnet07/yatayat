@@ -67,6 +67,7 @@ Route::post('book',[BookController::class,'store']);
 Route::view('new','new');
 Route::view('ticket','ticket');
 Route::get('cancle/{id}',[Registeruser::class,'cancle']);
+Route::view('Vehiclehire','Vehiclehire');
 
 
 

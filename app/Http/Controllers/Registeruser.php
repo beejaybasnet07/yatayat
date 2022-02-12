@@ -110,7 +110,10 @@ class Registeruser extends Controller
         $data->phone=$request->get('phone');
         $data->email=$request->get('email');
         $data->age=$request->get('age');
-        $data->password= md5($request->get('password'));
+        if ($request->get('password')!=" "){
+            $data->password= md5($request->get('password'));
+        }
+        
         $data->save();
         return response()->json($data);
     }
