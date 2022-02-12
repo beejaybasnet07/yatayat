@@ -15,16 +15,16 @@ class CreateBooksTable extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->integer('pid')->unsigned();
-            $table->foreign('pid')->references('id')->on('register_users')->onDelete('cascade')->onUpdate('cascade');
-            $table->integer('vid')->unsigned();
-            $table->foreign('vid')->references('id')->on('vehicle')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->unsignedBigInteger('pid');
+            $table->unsignedBigInteger('vid');
             $table->string('seat');
             $table->string('bording_point');
             $table->string('dropping_point');
             $table->integer('cost');
             $table->date('date');
             $table->integer('status');
+
             $table->timestamps();
         });
     }
@@ -36,6 +36,6 @@ class CreateBooksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('books');
+        Schema::dropIfExists('bookings');
     }
 }
