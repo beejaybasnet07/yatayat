@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\LoginAuth;
 use App\Http\Controllers\Registeruser;
 use App\Models\Register_user;
@@ -68,6 +69,8 @@ Route::view('new','new');
 Route::view('ticket','ticket');
 Route::get('cancle/{id}',[Registeruser::class,'cancle']);
 Route::view('Vehiclehire','Vehiclehire');
+Route::get('sendmail',[MailController::class,'sendmail']);
+Route::view('printticket','printticket');
 
 
 

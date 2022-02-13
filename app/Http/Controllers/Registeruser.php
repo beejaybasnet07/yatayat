@@ -8,6 +8,7 @@ use Illuminate\Database\Console\DbCommand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Book;
+use Mail;
 use App\Models\Vehicle;
 
 class Registeruser extends Controller
@@ -173,7 +174,9 @@ class Registeruser extends Controller
          return redirect('userprofile');
          
         
-    }         
+    }       
+    public function sendmail(){
+    } 
              
     
 
