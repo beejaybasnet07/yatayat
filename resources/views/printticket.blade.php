@@ -1,22 +1,19 @@
 @extends('master')
 
 <body class="bg-light">
+<div class="container" style="background-color:#f8f9fa;">
+    <nav class="navbar navbar-light " style="background-color:#f8f9fa;">
+        <a class="navbar-brand" href="..\index.php">
+      
+            <span class="font-weight-normal text-info">Yatayat</span></a>
+        </a>
+        
+ <a style="color:skyblue;" data-toggle="tooltip"  title="myprofile" class="nav-link" href="../userprofile"><i class="fa fa-user fa-2x"></i></a>
+
+    </nav>
+</div>
     <div class="container border bg-white mt-3">
-    <div class="row no-print pt-3">
-                        <div class="col-12">
-                            <button type="button" class="btn btn-light float-left" style="margin-right: 5px;">
-                                <a href="" @click.prevent="printme" target="_blank"><i class="fa fa-print"></i> Print</a>
 
-                            </button>
-                            <button type="button" class="btn btn-primary float-right">
-                                <i class="fa-solid fa-envelope"></i>
-                                Send Mail
-                            </button>
-
-
-
-                        </div>
-                    </div>
         <div class="row">
             <div class="col-12">
 
@@ -27,7 +24,10 @@
                         <div class="col-12">
                             <h4>
                                 <i class="fas fa-bus-alt fa-2x mr-2"></i>Yatayat
-                                <small class="float-right">Date: 2/10/2018</small>
+                                <small class="float-right"><?php
+date_default_timezone_set('Asia/Kathmandu');
+ echo ($datetime = date("Y-m-d"));
+?></small>
                             </h4>
                         </div>
                         <!-- /.col -->
@@ -48,35 +48,35 @@
                             </div>
                         </div>
                     </div>
-                    <div class="container " style="border:2px solid whitesmoke;margin-bottom:10px;border-radius:10px; background-color:white;">
+                    <div class="container mb-3 " style="border:2px solid whitesmoke;margin-bottom:10px;border-radius:10px; background-color:white;">
                         <div class="row">
                             <div class="col-1">
                                 <i class="far fa-calendar fa-3x  pl-3 pt-2"></i>
                             </div>
                             <div class="col">
-                            <div class="row">
-                                <div class="col-9 pl-3 pt-2">
-                                    <p>2022/2/30</p>
-                                    <h5 class="mb-2">KATHMANDU-BIRATNAGAR</h5>
-                                </div>
-                                <div class="col float-right">
-                                <p>TICKET NO:7385293047</p>
-                                </div>
+                                <div class="row">
+                                    <div class="col-9 pl-3 pt-2">
+                                        <p id="date"></p>
+                                        <h5 class="mb-2"><span id="from"></span>-<span id="to"></span></h5>
+                                    </div>
+                                    <div class="col mt-2 float-right">
+                                        <p>TICKET NO:7385293047</p>
+                                    </div>
 
-                            </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6">
                             <p>TRAVELS OPERATOR</p>
-                            <h6 class="lead">SAPTAKOSHI TRAVELS PVT</h6>
+                            <h6 class="lead" id="travel"></h6>
                         </div>
                         <div class="col-3 offset-3">
-                            <p >VEHICLE TYPE</p>
+                            <p>VEHICLE TYPE</p>
                             <p class="lead">HIACE &nbsp;&nbsp; NON-AC</p>
                         </div>
-                        
+
                     </div>
                     <hr>
                     <div class="row">
@@ -87,22 +87,22 @@
                                     <tbody>
                                         <tr>
                                             <th>FULLNAME</th>
-                                            <td>BIJAY BASNET</td>
+                                            <td id="name"></td>
 
                                         </tr>
                                         <tr>
                                             <th>EMAIL</th>
-                                            <td>beejaybasnet01@gmail.com</td>
+                                            <td id="email"></td>
 
                                         </tr>
                                         <tr>
                                             <th>PHONE</th>
-                                            <td>9824300087</td>
+                                            <td id="phone"></td>
 
                                         </tr>
                                         <tr>
                                             <th>SEATS</th>
-                                            <td>A1</td>
+                                            <td id="seatnumber"></td>
 
                                         </tr>
 
@@ -141,10 +141,25 @@
                         <div class="col-12 table-responsive">
 
                         </div>
-                        <!-- /.col -->
+                        
                     </div>
-                    <!-- /.row -->
-
+                    
+                <hr>
+                <div class="row">
+                    <div class="col-4">
+                    <p class="lead">PICKUP DETAILS-08:30pm</p>
+                     <span id="boarding"></span>
+                    </div>
+                    <div class="col-4">
+                    <p class="lead">Operator Contact Details</p>
+                     <span>9823489000 9847432988</span>
+                    </div>
+                    <div class="col-4">
+                    <p class="lead">Dropping Point Details</p>
+                     <span id="dropping"></span>
+                    </div>
+                </div>
+                <hr>
                     <div class="row">
                         <!-- accepted payments column -->
                         <div class="col-6">
@@ -154,21 +169,51 @@
                                 ESEWA
                             </p>
                         </div>
-                        <!-- /.col -->
-                      
-                        <!-- /.col -->
                     </div>
-                    <!-- /.row -->
+                    
 
-                    <!-- this row will not appear when printing -->
-                 
+                    <!-- print and email -->
+                    <div class="row no-print pt-3">
+                        <div class="col-12">
+                            <button type="button" class="btn btn-light float-left" style="margin-right: 5px;">
+                                <a href="" @click.prevent="printme" target="_blank"><i class="fa fa-print"></i> Print</a>
 
+                            </button>
+                            <button type="button" class="btn btn-primary float-right">
+                                <i class="fa-solid fa-envelope"></i>
+                                Send Mail
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.invoice -->
+
             </div>
 
 
         </div>
+
     </div>
 </body>
 @include('footer')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+  document.getElementById("seatnumber").innerHTML = localStorage.getItem("seat");
+    document.getElementById("from").innerHTML = localStorage.getItem("from1");
+    document.getElementById("to").innerHTML = localStorage.getItem("to1");
+    document.getElementById("date").innerHTML = localStorage.getItem("date1");
+    document.getElementById("travel").innerHTML = localStorage.getItem("travels1");
+    document.getElementById("travelsid").innerHTML = localStorage.getItem("travelsid");
+    document.getElementById("depart_time").innerHTML = localStorage.getItem("depart_time");
+</script>
+
+<script type="text/javascript">
+
+$( document ).ready(function() {
+    
+    document.getElementById("name").innerHTML= localStorage.getItem("user_name");
+    document.getElementById("email").innerHTML=localStorage.getItem("user_email");
+    document.getElementById("phone").innerHTML=localStorage.getItem("user_phone");
+    document.getElementById("boarding").innerHTML=localStorage.getItem("user_boarding");
+    document.getElementById("dropping").innerHTML=localStorage.getItem("user_dropping");
+});
+</script>

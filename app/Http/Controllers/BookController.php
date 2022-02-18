@@ -66,7 +66,7 @@ class BookController extends Controller
         
     //dd($data);
         $data->save();
-        return view('ticket');
+        return view('printticket');
     }
 
     /**

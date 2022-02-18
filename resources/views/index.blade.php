@@ -17,7 +17,7 @@
             <form method="GET" action="search">
                 <div class="row">
                     <div class="col-md-12 pt-md-5">
-                        <h1 class="font-weight-bold" id="indexsearch">Search For Buses</h1>
+                        <h1 class="font-weight-bold" id="indexsearch">Search For Vehicles</h1>
                     </div>
                     <div class="col-md-12 pb-md-5">
 

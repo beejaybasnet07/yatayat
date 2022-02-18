@@ -1,4 +1,4 @@
-<style>.fas:hover {color:red;opacity: 0.4;}</style>
+<style>#close:hover {color:red;opacity: 0.4;}</style>
 <nav class="navbar navbar-expand-lg" style=" background-color: #71bfe3;width:100%;">
   <nav class="navbar" style="background-color: #71bfe3;">
     <a class="navbar-brand" href="">
@@ -77,11 +77,11 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title text-primary" id="staticBackdropLabel">View Ticket</h5>
-              <i class="fas fa-times fa-2x" data-bs-dismiss="modal" aria-label="Close" style="cursor:pointer;"></i>
+              <i class="fas fa-times fa-2x" id="close" data-bs-dismiss="modal" aria-label="Close" style="cursor:pointer;"></i>
             </div>
             <div class="modal-body">
               <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Seat Code</label>
+                <label for="exampleFormControlInput1" class="form-label">Ticket Number:</label>
                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Eg:124xyba4677">
               </div>
 

@@ -185,10 +185,7 @@
               <div class="container one">
                 <form method="get" action="check" name="form{{$data->id}}" onclick="getform(this)" id="form1">
                   <div class=" row mt-2">
-
-
                     <div class="col offset-7 col-1 ">
-
                       <i class="fas fa-circle fa-1x" style="color: red; margin-top:10px"><span style="color:teal">Booked</span></i>
                     </div>
 
@@ -198,21 +195,16 @@
                     <div class="col  col-1 ml-3 ">
                       <i class="fas fa-circle fa-1x" style="color:#a5a5a5; margin-top:10px"><span style="color:teal">Available</span></i>
                     </div>
-
                   </div>
                   <div class="row">
-
                     <input type="hidden" name="vid" value="{{$data->id}}">
-
                     <div class="col col-1 offset-1">
                       <div class="form-check">
-
                         <input class="form-check-input" type="checkbox" id="check1" name="check" value="A1{{$data->id}}" <?php foreach ($books as $bookval) {
                                                                                                                             if (($bookval->seat) == "A1" . $data->id) {
                                                                                                                               echo "disabled style='background-color : red ;cursor:text'";
                                                                                                                             }
                                                                                                                           } ?> onchange="return validate(this)">
-
                       </div>
                     </div>
                     <div class="col col-1">
